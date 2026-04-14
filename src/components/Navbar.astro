@@ -100,6 +100,8 @@
     backdrop-filter: blur(12px);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     z-index: 1000;
+    padding-bottom: env(safe-area-inset-bottom);
+    height: calc(70px + env(safe-area-inset-bottom));
   }
 
   .navbar-mobile-bottom .navbar-content {
