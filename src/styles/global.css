@@ -1,0 +1,232 @@
+:root {
+  /* Palette: Emerald & Slate */
+  --color-bg-main: #0a0a0a; /* Deep Matte Black */
+  --color-bg-card: #141414; /* Slightly lighter for cards */
+  --color-bg-accent: #1e1e1e; /* Charcoal for borders/accents */
+
+  --color-primary: #50c878; /* Emerald Green (Vibrant) */
+  --color-primary-dim: #3a9e5f; /* Darker Green for hover */
+
+  --color-text-main: #ffffff;
+  --color-text-muted: #ffffff;
+  --color-text-dark: #000000;
+
+  /* Spacing & Layout */
+  --spacing-sm: 0.5rem; /* 8px */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 2rem; /* 32px */
+  --spacing-xl: 4rem; /* 64px */
+
+  --container-width: 1200px;
+  --border-radius: 8px;
+
+  /* Fonts */
+  --font-heading: 'Orbitron', sans-serif; /* Futuristic Sci-Fi */
+  --font-body: 'Rajdhani', sans-serif; /* Tech/Futuristic yet readable */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  background-color: transparent; /* Changed from opaque to reveal matrix bg */
+  color: var(--color-text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Utility Classes */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-text-dark);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  border-radius: 4px; /* Slightly boxy for tech look */
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before,
+.btn::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  padding: 0.75rem 1.5rem;
+}
+
+.btn::before {
+  color: #00ffff;
+  z-index: -1;
+}
+
+.btn::after {
+  color: #ff00ff;
+  z-index: -2;
+}
+
+.btn:hover {
+  background-color: var(--color-primary-dim);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(80, 200, 120, 0.2);
+  animation: btn-glitch 0.3s ease;
+}
+
+.btn:hover::before {
+  animation: btn-glitch-before 0.3s ease;
+}
+
+.btn:hover::after {
+  animation: btn-glitch-after 0.3s ease;
+}
+
+@keyframes btn-glitch {
+  0%,
+  100% {
+    transform: translateY(-1px) translateX(0);
+  }
+  10% {
+    transform: translateY(-1px) translateX(-2px);
+  }
+  20% {
+    transform: translateY(-1px) translateX(2px);
+  }
+  30% {
+    transform: translateY(-1px) translateX(-2px);
+  }
+  40% {
+    transform: translateY(-1px) translateX(2px);
+  }
+  50% {
+    transform: translateY(-1px) translateX(0);
+  }
+}
+
+@keyframes btn-glitch-before {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  10% {
+    opacity: 0.7;
+    transform: translateX(-3px);
+  }
+  20% {
+    opacity: 0;
+    transform: translateX(3px);
+  }
+  30% {
+    opacity: 0.7;
+    transform: translateX(-2px);
+  }
+  40% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+}
+
+@keyframes btn-glitch-after {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  15% {
+    opacity: 0.7;
+    transform: translateX(3px);
+  }
+  25% {
+    opacity: 0;
+    transform: translateX(-3px);
+  }
+  35% {
+    opacity: 0.7;
+    transform: translateX(2px);
+  }
+  45% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: var(--spacing-lg);
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Scroll Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.delay-100 {
+  transition-delay: 0.1s;
+}
+.reveal.delay-200 {
+  transition-delay: 0.2s;
+}
+.reveal.delay-300 {
+  transition-delay: 0.3s;
+}

@@ -1,0 +1,339 @@
+
+
+<section class='hero'>
+  <div class='container hero-content'>
+    <div class='hero-text'>
+      <h1 class='hero-title reveal glitch' data-text='Temitayo Salaudeen.'>
+        Temitayo Salaudeen. <br />
+        <span class='highlight'>Software Engineer.</span>
+      </h1>
+      <p class='hero-subtitle reveal delay-100'>
+        I'm a software engineer specializing in high-performance web
+        applications. I build accessible, scalable products that solve
+        real problems and drive meaningful impact.
+      </p>
+      <div class='cta-group reveal delay-200'>
+        <a href='#work' class='btn'>Projects</a>
+        <a href='#contact' class='btn btn-outline'>Contact</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 80px; /* Offset for fixed nav */
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .hero-title {
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-top: 0px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+  }
+
+  /* Glitch Effect */
+  .glitch {
+    position: relative;
+    animation: glitch-skew 11s infinite;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+
+  .glitch::before {
+    text-shadow: -2px 0 #00ffff;
+    animation: glitch-anim 11s infinite;
+  }
+
+  .glitch::after {
+    text-shadow: 2px 0 #ff00ff;
+    animation: glitch-anim2 11s infinite;
+  }
+  }
+
+  @keyframes glitch-anim {
+    0%, 9.09% {
+      /* Active glitch phase: 0-1s of 11s total */
+      opacity: 1;
+      left: 2px;
+    }
+    0% {
+      left: 2px;
+    }
+    1.5% {
+      left: -3px;
+    }
+    3% {
+      left: 3px;
+    }
+    4.5% {
+      left: -2px;
+    }
+    6% {
+      left: 4px;
+    }
+    7.5% {
+      left: -4px;
+    }
+    9% {
+      left: 2px;
+    }
+    9.09% {
+      opacity: 1;
+      left: 0;
+    }
+    9.1%, 100% {
+      /* Rest phase: 1-11s (10 second pause) */
+      opacity: 0;
+      left: 0;
+    }
+  }
+
+  @keyframes glitch-anim2 {
+    0%, 9.09% {
+      /* Active glitch phase: 0-1s of 11s total */
+      opacity: 1;
+      left: -2px;
+    }
+    0% {
+      left: -2px;
+    }
+    2% {
+      left: 4px;
+    }
+    4% {
+      left: -3px;
+    }
+    6% {
+      left: 3px;
+    }
+    8% {
+      left: -4px;
+    }
+    9% {
+      left: 2px;
+    }
+    9.09% {
+      opacity: 1;
+      left: 0;
+    }
+    9.1%, 100% {
+      /* Rest phase: 1-11s (10 second pause) */
+      opacity: 0;
+      left: 0;
+    }
+  }
+
+  @keyframes glitch-skew {
+    0%, 9.09% {
+      /* Active glitch phase: 0-1s of 11s total */
+    }
+    0% {
+      transform: translateX(0);
+    }
+    2% {
+      transform: translateX(-2px);
+    }
+    4% {
+      transform: translateX(2px);
+    }
+    6% {
+      transform: translateX(-1px);
+    }
+    8% {
+      transform: translateX(1px);
+    }
+    9.09% {
+      transform: translateX(0);
+    }
+    9.1%, 100% {
+      /* Rest phase: 1-11s (10 second pause) */
+      transform: translateX(0);
+    }
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-text-muted);
+    margin: 0px auto 2.5rem;
+    max-width: 500px;
+    text-align: center;
+  }
+
+  .cta-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .btn-outline {
+    background: transparent;
+    border: 1px solid var(--color-bg-accent);
+    color: var(--color-text-main);
+    font-family: var(--font-heading);
+    display: inline-block; /* ensure padding applied correctly */
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  /* Futuristic Visual */
+  .visual-container {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glow-border {
+    position: relative;
+    background: var(--color-primary);
+    padding: 1px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(80, 200, 120, 0.3);
+    transition: box-shadow 0.3s ease;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glow-border:hover {
+    box-shadow: 0 0 40px rgba(80, 200, 120, 0.5);
+  }
+
+  .game-block {
+    background: #0a0a0a;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 400px; /* Keep a sensible minimum height */
+    border-radius: 11px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #141414 0%, #0a0a0a 100%);
+  }
+
+  .game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.75rem;
+  }
+
+  .label {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+  }
+
+  .dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .red {
+    background: #ff5f56;
+  }
+  .yellow {
+    background: #ffbd2e;
+  }
+  .green {
+    background: #27c93f;
+  }
+
+  /* Scroll Indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-heading);
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+  }
+
+  .line {
+    width: 1px;
+    height: 40px;
+    background: var(--color-text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding-top: 60px;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      max-width: 80%;
+    }
+
+    .cta-group {
+      display: none;
+    }
+
+    .btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>

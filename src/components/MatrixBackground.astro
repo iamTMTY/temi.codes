@@ -1,0 +1,120 @@
+---
+
+---
+
+<canvas id='matrix-canvas'></canvas>
+<div class='matrix-overlay'></div>
+
+<script>
+  const canvas = document.getElementById('matrix-canvas') as HTMLCanvasElement;
+  const ctx = canvas.getContext('2d', { alpha: false });
+
+  if (ctx) {
+    // Set canvas size immediately
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    console.log('Canvas sized:', canvas.width, canvas.height);
+
+    // Matrix rain configuration - optimized for performance
+    const fontSize = 20; // Larger font = fewer columns = better performance
+    const columns = Math.floor(canvas.width / fontSize);
+    const drops: number[] = [];
+
+    // Initialize drops
+    for (let i = 0; i < columns; i++) {
+      drops[i] = Math.floor(Math.random() * -100);
+    }
+
+    // Reduced character set for faster random selection
+    const chars =
+      'アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+
+    let lastFrameTime = 0;
+    const fps = 24; // Limit to 24 fps instead of 60 for better performance
+    const frameDelay = 1000 / fps;
+
+    function draw(currentTime: number) {
+      // Throttle frame rate
+      if (currentTime - lastFrameTime < frameDelay) {
+        requestAnimationFrame(draw);
+        return;
+      }
+      lastFrameTime = currentTime;
+
+      // Semi-transparent black background for trail effect
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.08)'; // Higher opacity = less frequent redraws = better performance
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < drops.length; i++) {
+        // Random character
+        const text = chars[Math.floor(Math.random() * chars.length)];
+
+        // Draw character
+        ctx.fillStyle = Math.random() > 0.98 ? '#ffffff' : '#0F0';
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        // Reset drop to top randomly
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+
+        drops[i]++;
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    // Start animation
+    console.log('Starting matrix animation');
+    requestAnimationFrame(draw);
+
+    // Handle resize with debouncing to prevent excessive redraws
+    let resizeTimeout: number;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }, 250);
+    });
+  } else {
+    console.error('Failed to get canvas context');
+  }
+</script>
+
+<style>
+  #matrix-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    background: #000;
+    z-index: -2;
+  }
+
+  .matrix-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #matrix-canvas,
+    .matrix-overlay {
+      display: none;
+    }
+    body {
+      background: #000;
+    }
+  }
+</style>

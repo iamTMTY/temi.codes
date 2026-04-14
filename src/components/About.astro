@@ -1,0 +1,225 @@
+---
+
+---
+
+<section id='about' class='about-section'>
+  <div class='container'>
+    <div class='about-grid'>
+      <!-- Bio Column -->
+      <div class='bio-col reveal'>
+        <h2 class='section-title'>
+          Values & <span class='highlight'>Experience</span>
+        </h2>
+        <p class='bio-text'>
+          I'm a software engineer specializing in high-performance web
+          applications. From healthcare logistics to fintech, I've built
+          solutions that drive real business impact.
+        </p>
+        <p class='bio-text'>
+          Currently leading web engineering at ShortPoint, I've previously
+          shipped production apps in healthcare and banking. I care deeply
+          about accessibility, performance, and building software that makes a
+          difference.
+        </p>
+        <a
+          target='_blank'
+          href='a-temitayo-salaudeen-resume.pdf'
+          class='btn'
+          data-text='Download Resume'>Download Resume</a
+        >
+      </div>
+
+      <!-- Experience Column -->
+      <div class='experience-col'>
+        <div class='experience-card reveal'>
+          <div class='card-header'>
+            <h3>Lead Web Engineer</h3>
+            <span class='year'>2024 - Present</span>
+          </div>
+          <span class='company'>ShortPoint</span>
+          <p>
+            Leading web platform optimization and migration to custom-built
+            solutions. Increased website performance by 200% and lead
+            generation by 30%.
+          </p>
+        </div>
+
+        <div class='experience-card reveal delay-100'>
+          <div class='card-header'>
+            <h3>Senior Frontend Engineer</h3>
+            <span class='year'>2024 - 2025</span>
+          </div>
+          <span class='company'>Peerless</span>
+          <p>
+            Frontend Team Lead for a micro-frontend core banking application.
+            Built permission-based access controls and platform-wide services
+            for all teams.
+          </p>
+        </div>
+
+        <div class='experience-card reveal delay-200'>
+          <div class='card-header'>
+            <h3>Web & Mobile Engineer</h3>
+            <span class='year'>2023 - 2024</span>
+          </div>
+          <span class='company'>LifeBank</span>
+          <p>
+            Built internal web apps and React Native mobile apps for a
+            healthcare logistics company to manage medical supply orders.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    padding: var(--spacing-xl) 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Background subtle decoration */
+  .about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(
+      circle,
+      var(--color-primary-dim) 0%,
+      transparent 70%
+    );
+    opacity: 0.1;
+    filter: blur(50px);
+    z-index: -1;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+  }
+
+  .bio-text {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    max-width: 500px;
+  }
+
+  .btn-outline {
+    background: transparent;
+    border: 1px solid var(--color-bg-accent);
+    color: var(--color-text-main);
+    font-family: var(--font-heading);
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    transition: all 0.2s ease;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  /* Experience Column */
+  .experience-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* Replicating the 'Frontend' card style */
+  .experience-card {
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-bg-accent);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* .experience-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary-dim);
+  } */
+
+  .experience-card .deco-corner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: var(--color-primary);
+    opacity: 0.1;
+    border-radius: 100% 0 0 0;
+    pointer-events: none;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.25rem;
+  }
+
+  .experience-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--color-text-main);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    margin: 0;
+  }
+
+  .year {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .company {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+    font-family: var(--font-heading);
+    letter-spacing: 0.05em;
+  }
+
+  .experience-card p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #ccc;
+    position: relative;
+    z-index: 1; /* ensure text is above deco */
+  }
+
+  @media (max-width: 768px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+</style>

@@ -1,0 +1,131 @@
+---
+
+---
+
+<nav class='navbar'>
+  <div class='container navbar-content'>
+    <a href='#' class='logo'>
+      T<span class='accent'>S</span>
+    </a>
+
+    <ul class='nav-links'>
+      <li><a href='#work'>Work</a></li>
+      <li><a href='#about'>About</a></li>
+      <li><a href='#contact'>Contact</a></li>
+    </ul>
+
+    <a
+      target='_blank'
+      href='/a-temitayo-salaudeen-resume.pdf'
+      class='btn btn-sm'
+      data-text='Resume'>Resume</a
+    >
+  </div>
+</nav>
+
+<nav class='navbar-mobile-bottom'>
+  <div class='container navbar-content'>
+    <ul class='nav-links'>
+      <li><a href='#work'>Work</a></li>
+      <li><a href='#about'>About</a></li>
+      <li><a href='#contact'>Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .logo {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--color-text-main);
+  }
+
+  .accent {
+    color: var(--color-primary);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+
+  .nav-links a:hover {
+    color: var(--color-primary);
+  }
+
+  .btn-sm {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.85rem;
+  }
+
+  .navbar-mobile-bottom {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 1000;
+  }
+
+  .navbar-mobile-bottom .navbar-content {
+    justify-content: center;
+  }
+
+  .navbar-mobile-bottom .nav-links {
+    justify-content: center;
+    gap: 2.5rem;
+  }
+
+  .navbar-mobile-bottom .nav-links a {
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .navbar {
+      height: 60px;
+    }
+
+    .navbar .nav-links {
+      display: none;
+    }
+
+    .navbar-mobile-bottom {
+      display: flex;
+    }
+  }
+</style>

@@ -1,0 +1,121 @@
+---
+
+---
+
+<section id='contact' class='contact-section'>
+  <div class='container'>
+    <div class='contact-wrapper reveal'>
+      <h2 class='section-title'>
+        Ready to <span class='highlight'>Collaborate?</span>
+      </h2>
+      <p class='contact-text'>
+        I am currently available for freelance projects and full-time
+        opportunities. If you have an idea that needs engineering, let's discuss
+        it.
+      </p>
+
+      <div class='contact-actions'>
+        <a
+          href='mailto:salaudeen.t@gmail.com'
+          class='btn'
+          data-text='Send an Email'>Send an Email</a
+        >
+        <div class='social-links'>
+          <a
+            href='https://github.com/iamTMTY'
+            target='_blank'
+            class='social-btn'>GitHub</a
+          >
+          <a
+            href='https://www.linkedin.com/in/tmtys'
+            target='_blank'
+            class='social-btn'>LinkedIn</a
+          >
+          <!-- <a href='#' target='_blank' class='social-btn'>Twitter</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    padding: 6rem 0; /* Extra spacing for focus */
+    text-align: center;
+  }
+
+  .contact-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    /* background: linear-gradient(
+      180deg,
+      var(--color-bg-card) 0%,
+      transparent 100%
+    ); */
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border: 1px solid var(--color-bg-accent);
+    border-radius: 16px;
+    position: relative;
+  }
+
+  @media (max-width: 768px) {
+    .contact-wrapper {
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  /* Glowing top border */
+  .contact-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-primary),
+      transparent
+    );
+  }
+
+  .highlight {
+    color: var(--color-primary);
+  }
+
+  .contact-text {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin-bottom: 3rem;
+    line-height: 1.6;
+  }
+
+  .contact-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .social-btn {
+    font-family: var(--font-heading);
+    color: var(--color-text-muted);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .social-btn:hover {
+    color: var(--color-primary);
+  }
+</style>
