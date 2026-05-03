@@ -9,12 +9,18 @@ import Footer from '../components/Footer.astro';
 ---
 
 <Layout>
-	<Navbar />
-	<main>
-		<Hero />
-		<Projects />
-		<About />
-		<Contact />
-	</main>
-	<Footer />
+  <Navbar />
+  <main class='main-content'>
+    <Hero />
+    <Projects />
+    <About />
+    <Contact />
+  </main>
+  <Footer />
 </Layout>
+
+<style>
+  .main-content {
+    background: #00000099;
+  }
+</style>
